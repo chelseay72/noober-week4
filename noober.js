@@ -7,13 +7,16 @@ window.addEventListener('DOMContentLoaded', async function() {
   
   // 🔥 start here: write the recipe (algorithm), then write the code
 
+// loop to go through all 100 arrays of json 
 
   for(let i = 0; i < json.length ; i++){
-    
+ 
+    // rename the array into a variable
     let rideDetail = json[i]
 
     let rideList = document.querySelector(`.rides`)
 
+    // create a variable to call for what level of service is needed
     let levelOfService 
 
     if(rideDetail.purpleRequested == true) {
@@ -24,6 +27,7 @@ window.addEventListener('DOMContentLoaded', async function() {
       levelOfService = `Noober X`
     }
 
+    //code to create a different color based on service level Purple or other
     let textColor 
 
     if(levelOfService == `Noober Purple`) {
@@ -32,6 +36,8 @@ window.addEventListener('DOMContentLoaded', async function() {
       textColor = `blue-500`
     }
 
+    // for 1 passenger rides, correct the grammar
+
     let passengerGrammar
     if(rideDetail.numberOfPassengers == 1) {
       passengerGrammar = `passenger`
@@ -39,6 +45,8 @@ window.addEventListener('DOMContentLoaded', async function() {
       passengerGrammar = `passengers`
     }
 
+    // adding the html code into the end of the html based on the for loop and if/else statements
+    
     rideList.insertAdjacentHTML(`beforeend`,`
     <h1 class="inline-block mt-8 px-4 py-2 rounded-xl text-2xl bg-clip-text text-transparent bg-gradient-to-r from-${textColor} to-${textColor}">
       <i class="fas fa-car-side"></i>
